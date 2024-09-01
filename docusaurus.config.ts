@@ -89,20 +89,11 @@ const config: Config = {
           items: [
             { label: "关于我", to: "/about" },
             { label: "GitHub", href: social.github.href },
-            { label: "Twitter", href: social.x.href },
-            { label: "掘金", href: social.juejin.href },
-            { label: "Discord", href: social.discord.href },
           ],
         },
         {
           title: "网站",
-          items: [
-            { label: "js反混淆", to: "https://js-deobfuscator.kuizuo.cn" },
-            { label: "cyberChef", to: "https://gchq.github.io/CyberChef" },
-            { label: "api服务", to: "https://api.kuizuo.cn" },
-            { label: "便民服务", to: "https://service.kuizuo.cn" },
-            { label: "站点监控", to: "https://uptime.kuizuo.cn" },
-          ],
+          items: [{ label: "Github", to: "https://github.com/Fanceir" }],
         },
         {
           title: "更多",
@@ -119,11 +110,7 @@ const config: Config = {
         },
       ],
       copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
-          beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        <p>Copyright © 2020 - ${new Date().getFullYear()} kuizuo. | Built with Docusaurus.</p>
+        <p>Copyright © 2020 - ${new Date().getFullYear()} Fanceir | Built with Docusaurus.</p>
         `,
     },
     algolia: {
