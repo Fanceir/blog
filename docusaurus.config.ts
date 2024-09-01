@@ -12,7 +12,7 @@ const config: Config = {
   url: "https://fanxu.online",
   baseUrl: "/",
   favicon: "img/favicon.ico",
-  organizationName: "kuizuo",
+  organizationName: "Fanceir",
   projectName: "blog",
   customFields: {
     bio: "道阻且长，行则将至",
