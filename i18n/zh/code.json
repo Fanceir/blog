@@ -13,11 +13,11 @@
     "description": "hero greet"
   },
   "愧怍": {
-    "message": "愧怍",
+    "message": "Fanceir",
     "description": "my name"
   },
   "homepage.hero.text": {
-    "message": "在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。",
+    "message": "这是我个人学习的博客网站，主要记录一些学习笔记、技术分享、生活感悟等内容。欢迎大家来访！",
     "description": "hero text"
   },
   "homepage.hero.look": {
