@@ -146,13 +146,17 @@ const config: Config = {
       ],
     },
     giscus: {
-      repo: "kuizuo/blog",
-      repoId: "MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=",
+      repo: "Fanceir/blog",
+      repoId: "R_kgDOMq9UAg",
       category: "General",
-      categoryId: "DIC_kwDOF7NJDM4CPK95",
-      theme: "light",
-      darkTheme: "dark_dimmed",
-    } satisfies Partial<GiscusConfig>,
+      categoryId: "DIC_kwDOMq9UAs4CiHmt",
+      theme: "preferred_color_scheme", // 或 "light" / "dark_dimmed"
+      darkTheme: "dark_dimmed", // 如果你使用暗色主题
+      mapping: "pathname",
+      inputPosition: "bottom",
+      lang: "zh-CN",
+    } satisfies Partial<GiscusConfig>
+,    
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
