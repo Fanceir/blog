@@ -150,11 +150,8 @@ const config: Config = {
       repoId: "R_kgDOMq9UAg",
       category: "General",
       categoryId: "DIC_kwDOMq9UAs4CiHmt",
-      theme: "preferred_color_scheme", // 或 "light" / "dark_dimmed"
-      darkTheme: "dark_dimmed", // 如果你使用暗色主题
-      mapping: "pathname",
-      inputPosition: "bottom",
-      lang: "zh-CN",
+      theme: 'light',
+      darkTheme: 'dark',
     } satisfies Partial<GiscusConfig>
 ,    
     tableOfContents: {
