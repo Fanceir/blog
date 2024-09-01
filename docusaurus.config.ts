@@ -28,7 +28,7 @@ const config: Config = {
     metadata: [
       {
         name: "author",
-        content: "fanceir",
+        content: "Fanceir",
       },
       {
         name: "keywords",
@@ -36,7 +36,7 @@ const config: Config = {
       },
       {
         name: "keywords",
-        content: "编程爱好者, Web开发者, 写过爬虫, 学过逆向, 主攻ts全栈",
+        content: "编程爱好者, Web开发者, 失败的ap",
       },
     ],
     docs: {
@@ -46,7 +46,7 @@ const config: Config = {
     },
     navbar: {
       logo: {
-        alt: "愧怍",
+        alt: "Fanceir",
         src: "img/logo.webp",
         srcDark: "img/logo.webp",
       },
@@ -93,7 +93,7 @@ const config: Config = {
         },
         {
           title: "网站",
-          items: [{ label: "Github", to: "https://github.com/Fanceir" }],
+          items: [{ label: "Github", to: "https://github.com" }],
         },
         {
           title: "更多",
@@ -222,7 +222,7 @@ const config: Config = {
       {
         path: "blog",
         editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
-          `https://github.com/kuizuo/blog/edit/main/${blogDirPath}/${blogPath}`,
+          `https://github.com/Fanceir/blog/edit/main/${blogDirPath}/${blogPath}`,
         editLocalizedFiles: false,
         blogDescription: "代码人生：编织技术与生活的博客之旅",
         blogSidebarCount: 10,
@@ -234,7 +234,7 @@ const config: Config = {
         feedOptions: {
           type: "all",
           title: "愧怍",
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus.<p><a href="http://beian.miit.gov.cn/" class="footer_lin">${beian}</a></p>`,
+          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus. class="footer_lin">${beian}</a></p>`,
         },
       },
     ],
@@ -260,7 +260,7 @@ const config: Config = {
                 innerHTML: `
     (${function () {
       console.log(
-        `%c Kz Blog %c https://github.com/kuizuo/blog`,
+        `%c Kz Blog %c https://github.com/Fanceir/blog`,
         "color: #fff; margin: 1em 0; padding: 5px 0; background: #12affa;",
         "margin: 1em 0; padding: 5px 0; background: #efefef;"
       );

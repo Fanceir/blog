@@ -1,7 +1,7 @@
 <h2 align="center">
 个人博客
 
-fork 自 kuizuo/blog 使用了 vercel 部署
+使用了 vercel 一键部署 kuizuo/blog 
 
 </h2>
 <p align="center">
