@@ -114,9 +114,9 @@ const config: Config = {
         `,
     },
     algolia: {
-      appId: "MM6AA1YCJW",
-      apiKey: "54f16bab73f2b7fb240c36810b0d5677",
-      indexName: "kuizuo",
+      appId: "7KOYDRRV5Z",
+      apiKey: "6cf132f993a45377475827a5b8007370",
+      indexName: "fanceir",
     },
     prism: {
       theme: themes.oneLight,
