@@ -17,7 +17,7 @@ const config: Config = {
   customFields: {
     bio: "道阻且长，行则将至",
     description:
-      "是一个由愧怍创作的博客，本站作者使用了他的框架，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。",
+      "是一个由愧怍创作的博客框架，本站作者使用了他的框架，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。",
   },
   themeConfig: {
     // announcementBar: {
@@ -233,8 +233,8 @@ const config: Config = {
           defaultReadingTime({ content, options: { wordsPerMinute: 300 } }),
         feedOptions: {
           type: "all",
-          title: "愧怍",
-          copyright: `Copyright © ${new Date().getFullYear()} 愧怍 Built with Docusaurus. class="footer_lin">${beian}</a></p>`,
+          title: "fanceir",
+          copyright: `Copyright © ${new Date().getFullYear()} Fanceir Built with Docusaurus. class="footer_lin">${beian}</a></p>`,
         },
       },
     ],
@@ -288,7 +288,7 @@ Love what you do and do what you love.
       tagName: "meta",
       attributes: {
         name: "description",
-        content: "愧怍的个人博客",
+        content: "Fanceir的个人博客",
       },
     },
   ],
