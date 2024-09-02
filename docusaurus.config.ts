@@ -3,7 +3,8 @@ import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
 import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
-
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 const beian = "闽ICP备2020017848号-2";
 const beian1 = "闽公网安备35021102000847号";
 
@@ -302,6 +303,32 @@ Love what you do and do what you love.
     locales: ["zh-CN"],
   },
   onBrokenLinks: "warn",
+  presets: [
+    [
+      "classic",
+      {
+        docs: {
+          path: "docs",
+          sidebarPath: "sidebars.ts",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+        blog: {
+          showReadingTime: true,
+          blogSidebarCount: 'ALL',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+        theme: {
+          customCss: ["./src/css/custom.css"],
+        },
+      },
+    ],
+  ],
+  stylesheets: [
+    "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css",
+    // 其他样式表...
+  ],
 };
 
 export default config;
