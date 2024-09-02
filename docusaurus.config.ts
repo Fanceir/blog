@@ -1,10 +1,10 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 const beian = "闽ICP备2020017848号-2";
 const beian1 = "闽公网安备35021102000847号";
 
@@ -168,7 +168,26 @@ const config: Config = {
       },
     },
   } satisfies Preset.ThemeConfig,
-  presets: [
+  presets: [ [
+    "classic",
+    {
+      docs: {
+        path: "docs",
+        sidebarPath: "sidebars.ts",
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+      },
+      blog: {
+        showReadingTime: true,
+        blogSidebarCount: 'ALL',
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+      },
+      theme: {
+        customCss: ["./src/css/custom.css"],
+      },
+    },
+  ],
     [
       "classic",
       {
@@ -297,38 +316,13 @@ Love what you do and do what you love.
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css",
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css",
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css",
+    "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css",
   ],
   i18n: {
     defaultLocale: "zh-CN",
     locales: ["zh-CN"],
   },
   onBrokenLinks: "warn",
-  presets: [
-    [
-      "classic",
-      {
-        docs: {
-          path: "docs",
-          sidebarPath: "sidebars.ts",
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-        },
-        blog: {
-          showReadingTime: true,
-          blogSidebarCount: 'ALL',
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-        },
-        theme: {
-          customCss: ["./src/css/custom.css"],
-        },
-      },
-    ],
-  ],
-  stylesheets: [
-    "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css",
-    // 其他样式表...
-  ],
 };
 
 export default config;
