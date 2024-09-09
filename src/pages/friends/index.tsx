@@ -15,7 +15,7 @@ const SITE_INFO = `
 title: 'Fanceir'
 description: '道阻且长，行则将至'
 website: 'https://fanxu.online'
-avatar: 'https://kuizuo.cn/img/logo.png'
+avatar: 'https://fanxu.online/img/logo.png'
 `
 const friends = Friends
 

@@ -80,7 +80,7 @@ const config: Config = {
             { label: "归档", to: "blog/archive" },
             { label: "技术笔记", to: "docs/skill" },
             { label: "实战项目", to: "project" },
-            { label: "前端示例", to: "https://example.kuizuo.cn" },
+            
           ],
         },
         {

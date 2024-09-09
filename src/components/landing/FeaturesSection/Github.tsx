@@ -13,7 +13,7 @@ export default function Github({ className }: GithubProps) {
   const { isDarkTheme } = useColorMode()
 
   const githubStatsUrl = (type: 'overview' | 'languages', isDark: boolean) =>
-    `https://raw.githubusercontent.com/kuizuo/github-stats/master/generated/${type}.svg#gh-${
+    `https://raw.githubusercontent.com/fanceir/github-stats/master/generated/${type}.svg#gh-${
       isDark ? 'dark' : 'light'
     }-mode-only`
 
@@ -40,7 +40,7 @@ export default function Github({ className }: GithubProps) {
             }}
           />
         </div>
-        <GitHubCalendar username="kuizuo" blockSize={11} colorScheme={isDarkTheme ? 'dark' : 'light'} />
+        <GitHubCalendar username="fanceir" blockSize={11} colorScheme={isDarkTheme ? 'dark' : 'light'} />
       </div>
     </div>
   )

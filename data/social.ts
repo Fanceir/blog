@@ -19,14 +19,7 @@ type SocialValue = {
 
 const social: Social = {
   github: 'https://github.com/Fanceir',
-  //x: 'https://twitter.com/kuizuo',
-  //juejin: 'https://juejin.cn/user/1565318510545901',
-  //wx: 'https://img.kuizuo.cn/wechat.png',
-  // qq: 'https://img.kuizuo.cn/qq.png',
   zhihu: 'https://www.zhihu.com/people/81-98-85-74',
-  //cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
- // email: 'mailto:hi@kuizuo.cn',
-  //discord: 'https://discord.gg/M8cVcjDxkz',
 }
 
 const socialSet: Record<keyof Social | 'rss', SocialValue> = {
