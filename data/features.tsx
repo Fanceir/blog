@@ -28,7 +28,7 @@ const FEATURES: FeatureItem[] = [
   {
     title: translate({
       id: 'homepage.feature.spider',
-      message: '看点算法',
+      message: '看过点算法',
     }),
     description: (
       <Translate>

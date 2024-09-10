@@ -8,6 +8,15 @@ export const projects: Project[] = [
     tags: ['opensource', 'design', 'favorite'],
     type: 'web',
   },
+  {
+    title: '仿照discord的聊天室',
+    description: '🎉 仿照discord的聊天室',
+    preview: '/img/project/chat.png',
+    website: 'https://chat.fanxu.online',
+    source: 'https://github.com/Fanceir/discord-clone',
+    tags: ['personal', 'opensource'],
+    type: 'web',
+  }
  
 ]
 
