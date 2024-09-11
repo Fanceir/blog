@@ -87,7 +87,7 @@ pnpm build
 
 ## 📷 截图
 
-<img width="1471" alt="Live Demo" src="https://github.com/kuizuo/blog/blob/main/static/img/og.png?raw=true">
+<img width="1471" alt="Live Demo" src="static\img\og.png">
 
 ## 📝 许可证
 
