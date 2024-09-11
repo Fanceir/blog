@@ -153,6 +153,7 @@ const sidebars: SidebarsConfig = {
         id: 'skill/algorithm/algorithm-introduction',
       },
       items: [
+        'skill/algorithm/basic',
         'skill/algorithm/two-sum',
         'skill/algorithm/three-sum',
         'skill/algorithm/sliding-window',
