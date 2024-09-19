@@ -169,6 +169,7 @@ const sidebars: SidebarsConfig = {
         'skill/algorithm/three-sum',
         'skill/algorithm/sliding-window',
         'skill/algorithm/double-pointer',
+        'skill/algorithm/interview',
       ],
     },
     // {
