@@ -38,6 +38,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
+      blog:
+        specifier: 'file:'
+        version: file:(@algolia/client-search@4.19.1)(@docusaurus/plugin-content-docs@3.5.2(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))(@docusaurus/theme-classic@3.5.2(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@emotion/is-prop-valid@0.8.8)(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(@types/react@18.2.21)(eslint@8.57.0)(prop-types@15.8.1)(search-insights@2.8.2)(typescript@5.5.2)(webpack@5.88.2)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1858,6 +1861,10 @@ packages:
 
   bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
+
+  'blog@file:':
+    resolution: {directory: '', type: directory}
+    engines: {node: '>=20.0'}
 
   body-parser@1.20.1:
     resolution: {integrity: sha512-jWi7abTbYwajOytWCQc37VulmWiRae5RyTpaCyDcS5/lMdtwSz5lOpDE67srw/HYe35f1z3fDQw+3txg7gNtWw==}
@@ -8214,6 +8221,65 @@ snapshots:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
+
+  blog@file:(@algolia/client-search@4.19.1)(@docusaurus/plugin-content-docs@3.5.2(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))(@docusaurus/theme-classic@3.5.2(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@emotion/is-prop-valid@0.8.8)(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(@types/react@18.2.21)(eslint@8.57.0)(prop-types@15.8.1)(search-insights@2.8.2)(typescript@5.5.2)(webpack@5.88.2):
+    dependencies:
+      '@docusaurus/core': 3.5.2(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2)
+      '@docusaurus/plugin-ideal-image': 3.5.2(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2)
+      '@docusaurus/plugin-pwa': 3.5.2(@docusaurus/plugin-content-docs@3.5.2(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2)
+      '@docusaurus/plugin-vercel-analytics': 3.5.2(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2)
+      '@docusaurus/preset-classic': 3.5.2(@algolia/client-search@4.19.1)(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.8.2)(typescript@5.5.2)
+      '@docusaurus/theme-search-algolia': 3.5.2(@algolia/client-search@4.19.1)(@docusaurus/types@3.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mdx-js/react@3.0.0(@types/react@18.2.21)(react@18.3.1))(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.8.2)(typescript@5.5.2)
+      '@giscus/react': 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@popperjs/core': 2.11.8
+      '@radix-ui/react-slot': 1.1.0(@types/react@18.2.21)(react@18.3.1)
+      autoprefixer: 10.4.19(postcss@8.4.38)
+      class-variance-authority: 0.7.0
+      docusaurus-plugin-baidu-tongji: 0.0.0-beta.4
+      docusaurus-plugin-image-zoom: 2.0.0(@docusaurus/theme-classic@3.5.2(@types/react@18.2.21)(eslint@8.57.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.2))
+      framer-motion: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mini-svg-data-uri: 1.4.4
+      ora: 8.0.1
+      postcss: 8.4.38
+      prism-react-renderer: 2.3.1(react@18.3.1)
+      raw-loader: 4.0.2(webpack@5.88.2)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-github-calendar: 4.1.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-icon-cloud: 4.1.4(react@18.3.1)
+      react-popper: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      tailwind-merge: 2.3.0
+      tailwindcss: 3.4.4
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@docusaurus/plugin-content-docs'
+      - '@docusaurus/theme-classic'
+      - '@docusaurus/types'
+      - '@emotion/is-prop-valid'
+      - '@mdx-js/react'
+      - '@parcel/css'
+      - '@swc/core'
+      - '@swc/css'
+      - '@types/babel__core'
+      - '@types/react'
+      - bufferutil
+      - csso
+      - debug
+      - esbuild
+      - eslint
+      - jimp
+      - lightningcss
+      - next
+      - prop-types
+      - search-insights
+      - supports-color
+      - ts-node
+      - typescript
+      - uglify-js
+      - utf-8-validate
+      - vue-template-compiler
+      - webpack
+      - webpack-cli
 
   body-parser@1.20.1:
     dependencies:
