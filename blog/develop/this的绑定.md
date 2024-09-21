@@ -4,7 +4,7 @@ title: this 的绑定
 date: 2024-09-02
 authors: Fanceir
 tags: [javascript]
-keywords: [javascript, this]
+keywords: [javascript]
 image: https://s2.loli.net/2024/07/24/iheyz3CPOQoaIX7.png
 ---
 
