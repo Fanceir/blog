@@ -1,7 +1,7 @@
 ---
 id: Math-Equations
-slug:
-title: Math-Equations
+slug: Math-Equations
+title: 测试数学公式
 date: 2024-10-01
 authors: Fanceir
 tags: [Math-Equations]
@@ -18,4 +18,3 @@ keywords: [Math-Equations]
 $$
 I = \int_0^{2\pi} \sin(x)\,dx
 $$
-
