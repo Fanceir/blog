@@ -3,9 +3,8 @@ import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
 import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
-const beian = "闽ICP备2020017848号-2";
-const beian1 = "闽公网安备35021102000847号";
-
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: "Fanceir's Blog",
   url: "https://fanxu.online",
@@ -188,6 +187,16 @@ const config: Config = {
         debug: process.env.NODE_ENV === "development",
       } satisfies Preset.Options,
     ],
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          path: 'docs',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+      },
+    ],
   ],
   plugins: [
     "docusaurus-plugin-image-zoom",
@@ -233,7 +242,7 @@ const config: Config = {
         feedOptions: {
           type: "all",
           title: "fanceir",
-          copyright: `Copyright © ${new Date().getFullYear()} Fanceir Built with Docusaurus. class="footer_lin">${beian}</a></p>`,
+          copyright: `Copyright © ${new Date().getFullYear()} Fanceir Built with Docusaurus. class="footer_lin"></a></p>`,
         },
       },
     ],
@@ -295,6 +304,13 @@ Love what you do and do what you love.
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css",
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css",
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css",
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
   ],
   i18n: {
     defaultLocale: "zh-CN",
