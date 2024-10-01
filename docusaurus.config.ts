@@ -167,11 +167,13 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       {
         docs: {
-          path: "docs",
-          sidebarPath: "sidebars.ts",
+          path: 'docs',
+          sidebarPath: 'sidebars.ts',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: false,
         theme: {
@@ -185,19 +187,10 @@ const config: Config = {
           anonymizeIP: true,
         },
         debug: process.env.NODE_ENV === "development",
-      } satisfies Preset.Options,
-    ],
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          path: 'docs',
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-        },
       },
     ],
   ],
+  
   plugins: [
     "docusaurus-plugin-image-zoom",
     "@docusaurus/plugin-ideal-image",
