@@ -45,7 +45,7 @@
     "docusaurus-plugin-image-zoom": "^2.0.0",
     "framer-motion": "^11.11.1",
     "mini-svg-data-uri": "^1.4.4",
-    "ora": "^8.0.1",
+    "ora": "^8.1.0",
     "postcss": "^8.4.38",
     "prism-react-renderer": "^2.3.1",
     "raw-loader": "^4.0.2",
