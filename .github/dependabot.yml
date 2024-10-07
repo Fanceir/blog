@@ -1,33 +1,10 @@
-name: Dependabot Auto pnpm Install
-
-on:
-  pull_request:
-    branches:
-      - "dependabot/**" # 监听 Dependabot 创建的 PR
-
-jobs:
-  update-pnpm-lock:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      # 设置 Node.js 环境
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/*'
-
-      # 安装 pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      # 安装依赖并更新 pnpm-lock.yaml
-      - name: Install dependencies and update pnpm-lock.yaml
-        run: |
-          pnpm install
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add pnpm-lock.yaml
-          git commit -m "chore: update pnpm-lock.yaml"
-          git push
+version: 2
+updates:
+  - package-ecosystem: "npm" # 对于 pnpm 项目，也使用 npm 作为依赖更新检查的基础
+    directory: "/" # 指定 package.json 文件所在的目录
+    schedule:
+      interval: "weekly" # 每周检查依赖更新
+    ignore:
+      - dependency-name: "some-package" # 如果有需要忽略的包，可以配置在这里
+    commit-message:
+      prefix: "chore(deps)" # 自定义提交信息前缀
