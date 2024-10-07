@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" 
+    schedule:
+      interval: "weekly" 
+    commit-message:
+      prefix: "chore(deps)" 
+    registries:
+      - type: "npm-registry"
+        url: "https://registry.npmjs.org"
+    versioning-strategy: "increase" 
+
+  - package-ecosystem: "github-actions"
+    directory: "/" 
+    schedule:
+      interval: "weekly"
