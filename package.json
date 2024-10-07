@@ -38,7 +38,7 @@
     "@giscus/react": "^3.0.0",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-slot": "^1.1.0",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.20",
     "blog": "file:",
     "class-variance-authority": "^0.7.0",
     "docusaurus-plugin-baidu-tongji": "0.0.0-beta.4",
