@@ -1,17 +1,33 @@
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/" 
-    schedule:
-      interval: "weekly" 
-    commit-message:
-      prefix: "chore(deps)" 
-    registries:
-      - type: "npm-registry"
-        url: "https://registry.npmjs.org"
-    versioning-strategy: "increase" 
+name: Dependabot Auto pnpm Install
 
-  - package-ecosystem: "github-actions"
-    directory: "/" 
-    schedule:
-      interval: "weekly"
+on:
+  pull_request:
+    branches:
+      - "dependabot/**" # 监听 Dependabot 创建的 PR
+
+jobs:
+  update-pnpm-lock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # 设置 Node.js 环境
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      # 安装 pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 安装依赖并更新 pnpm-lock.yaml
+      - name: Install dependencies and update pnpm-lock.yaml
+        run: |
+          pnpm install
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml
+          git commit -m "chore: update pnpm-lock.yaml"
+          git push
