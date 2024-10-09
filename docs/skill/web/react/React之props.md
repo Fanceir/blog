@@ -28,7 +28,7 @@ function Parent() {
 }
 ```
 
-这同样也是一种父组件传递给子组件的方式，这里我使用了{{}}来传递一个对象，在`Child`组件中我可以通过 props.person 来访问`person`对象。
+这同样也是一种父组件传递给子组件的方式，这里我使用了`{{}}`来传递一个对象，在`Child`组件中我可以通过 props.person 来访问`person`对象。
 
 ```jsx
 //Parent.jsx

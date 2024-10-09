@@ -1,6 +1,6 @@
 ---
 id: Math-Equations
-slug: Math-Equations
+slug: /Math-Equations
 title: 测试数学公式
 date: 2024-10-01
 authors: Fanceir

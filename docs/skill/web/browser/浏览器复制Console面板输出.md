@@ -14,7 +14,10 @@ keywords: [javascript, browser, console]
 
 ```javascript
 // 模拟生成的数据
-let data = Array.from({ length: 100 }, (v, i) => ({ index: i, value: Math.random() }))
+let data = Array.from({ length: 100 }, (v, i) => ({
+    index: i,
+    value: Math.random(),
+}));
 ```
 
 ![image-20211207122529224](https://img.kuizuo.cn/image-20211207122529224.png)
@@ -32,27 +35,27 @@ copy(data)
 此时剪贴板的内容便是 data 的原生 js 对象（格式化后），像下面这样
 
 ```javascript
-;[
-  {
-    index: 0,
-    value: 0.3875488580101616,
-  },
-  {
-    index: 1,
-    value: 0.8932296395340085,
-  },
-  {
-    index: 2,
-    value: 0.14681203758288164,
-  },
-  {
-    index: 3,
-    value: 0.374650909955935,
-  },
-  // ...
-  {
-    index: 99,
-    value: 0.31823645771583875,
-  },
-]
+[
+    {
+        index: 0,
+        value: 0.3875488580101616,
+    },
+    {
+        index: 1,
+        value: 0.8932296395340085,
+    },
+    {
+        index: 2,
+        value: 0.14681203758288164,
+    },
+    {
+        index: 3,
+        value: 0.374650909955935,
+    },
+    // ...
+    {
+        index: 99,
+        value: 0.31823645771583875,
+    },
+];
 ```
