@@ -1,10 +1,10 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: "Fanceir's Blog",
   url: "https://fanxu.online",
@@ -183,7 +183,7 @@ const config: Config = {
           priority: 0.5,
         },
         gtag: {
-          trackingID: "G-S4SD5NXWXF",
+          trackingID: "G-ZBLQKV430M",
           anonymizeIP: true,
         },
         debug: process.env.NODE_ENV === "development",
