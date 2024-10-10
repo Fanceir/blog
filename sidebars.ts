@@ -141,6 +141,7 @@ const sidebars: SidebarsConfig = {
         'skill/algorithm/interview',
       ],
     },
+    
     {
       label: '月度总结与计划',
       type: 'category',
@@ -165,6 +166,10 @@ const sidebars: SidebarsConfig = {
     //   ],
     // },
   ],
+  tools: [
+    'tools/introduction',
+    'tools/Math-Equations',
+],
 }
 
 module.exports = sidebars
