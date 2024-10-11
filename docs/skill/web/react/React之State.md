@@ -285,14 +285,3 @@ return (
 ```
 
 这里的更新数组 State 是通过`setAuthor`的参数函数来实现的，这样可以保证在更新数组的时候不会丢失之前的数据。
-
-## 接下来是codesandbox的一个🌰
-
-Below is a live example using CodeSandbox:
-
-<iframe src="https://codesandbox.io/embed/g6c89v?view=editor+%2B+preview"
-     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="react.dev (forked)"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
