@@ -114,3 +114,86 @@ export function Sidebar() {
 同一文件中，有且仅有一个默认导出，但可以有多个具名导出
 
 注意合理的拆分组件会使代码更加清晰更加易于维护
+
+## 3 使用 JSX 书写标签语言
+
+### 将 HTML 转化为 JSX
+
+使用官网的例子
+
+```html
+<h1>海蒂·拉玛的待办事项</h1>
+<img src="https://i.imgur.com/yXOvdOSs.jpg" alt="Hedy Lamarr" class="photo" />
+<ul>
+  <li>发明一种新式交通信号灯</li>
+  <li>排练一个电影场景</li>
+  <li>改进频谱技术</li>
+</ul>
+```
+
+转化为 JSX
+
+```jsx
+export default function App() {
+  return (
+    <div>
+      <h1>海蒂·拉玛的待办事项</h1>
+      <img
+        src="https://i.imgur.com/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        class="photo"
+      />
+      <ul>
+        <li>发明一种新式交通信号灯</li>
+        <li>排练一个电影场景</li>
+        <li>改进频谱技术</li>
+      </ul>
+    </div>
+  );
+}
+```
+
+可以使用转化器来将 HTML 转化为 JSX
+
+## 4 JSX 中使用大括号来使用 JavaScript 表达式
+
+```jsx
+export default function Avatar() {
+  return (
+    <img
+      className="avatar"
+      src="https://i.imgur.com/7vQD0fPs.jpg"
+      alt="Gregorio Y. Zara"
+    />
+  );
+}
+```
+
+但是如果我想要将一个字符串属性传递给 JSX 的时可以使用`{}`
+
+```jsx
+export default function Avatar() {
+  const avatarUrl = "https://i.imgur.com/7vQD0fPs.jpg";
+  const description = "Gregorio Y. Zara";
+  return <img className="avatar" src={avatarUrl} alt={description} />;
+}
+```
+
+可以再哪里使用大括号
+
+1. 用作 JSX 标签中的文本：`<h1>{name}</h1>`
+2. 用作 JSX 标签的属性值：`<img src={url} />`
+
+使用双大括号来使用 JavaScript 对象
+
+```jsx
+export default function TodoList() {
+  return (
+    <ul style={{ color: "red", backgroundColor: "yellow" }}>
+      <li>发明一种新式交通信号灯</li>
+      <li>排练一个电影场景</li>
+      <li>改进频谱技术</li>
+    </ul>
+  );
+}
+```
