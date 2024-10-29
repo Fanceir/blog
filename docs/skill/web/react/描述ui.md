@@ -197,3 +197,127 @@ export default function TodoList() {
   );
 }
 ```
+
+## 5 将 Props 传递给组件
+
+React 使用 props 来互相通信，每个父组件可以提供 props 给他的子组件，这一过程叫做父传子
+
+### Props 是什么
+
+Props 是传递给 JSX 标签的信息，如 className、src、alt 等
+
+```jsx
+export default function Profile() {
+  return (
+    <Avatar person={{ name: "Lin Lanying", imageId: "1bX5QH6" }} size={100} />
+  );
+}
+```
+
+### 子组件读取 props
+
+```jsx
+function Avatar({ person, size }) {
+  return (
+    <img
+      className="avatar"
+      src={`https://i.imgur.com/${person.imageId}s.jpg`}
+      alt={person.name}
+      style={{ width: size, height: size }}
+    />
+  );
+}
+```
+
+### 特殊
+
+声明 props 时不要忘记加上`{}`
+
+props 可以指定一个默认值
+
+```jsx
+function Avator({ person, size = 100 }) {}
+```
+
+props 可以随着时间变化
+Props 是只读的，每次渲染都会收到新版本的 props
+
+## 6 条件渲染
+
+在渲染的时候可以选择性地渲染组件
+
+```jsx
+function item({ name, isPacked }) {
+  if (isPacked) {
+    return null;
+  }
+  return <li className="item">{name}</li>;
+}
+```
+
+可以使用位运算符号
+
+```jsx
+function Item({name,isPacked}){
+  return({
+    <li className="item">
+    {name}{isPacked&&'已打包'}
+    </li>
+  })
+}
+```
+
+不要将数字放在`&&`的左侧
+
+## 7 渲染列表
+
+通过 JavaScript 数组来渲染列表
+
+```jsx
+const people = [
+  {
+    id: 0,
+    name: "凯瑟琳·约翰逊",
+    profession: "数学家",
+  },
+  {
+    id: 1,
+    name: "马里奥·莫利纳",
+    profession: "化学家",
+  },
+  {
+    id: 2,
+    name: "穆罕默德·阿卜杜勒·萨拉姆",
+    profession: "物理学家",
+  },
+  {
+    id: 3,
+    name: "珀西·莱温·朱利亚",
+    profession: "化学家",
+  },
+  {
+    id: 4,
+    name: "苏布拉马尼扬·钱德拉塞卡",
+    profession: "天体物理学家",
+  },
+];
+```
+
+```jsx
+const chemists = people.filter((person) => preson.profession === "化学家");
+const listItem = chemists.map((person) => (
+  <li key={person.id}>
+    <img src="https://i.imgur.com/7vQD0fPs.jpg" alt={person.name} />
+    <p>
+      {person.name} <br />
+      <span>{person.profession}</span>
+    </p>
+  </li>
+));
+```
+
+### 为什么要设定 key
+
+key 可以用来帮助 React 识别哪些元素改变了，比如被添加或删除。因此你应当给数组中的每一个元素赋予一个确定的标识。
+
+但是请尽量不要把索引当作 key，因为这样会导致一些问题
