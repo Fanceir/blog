@@ -8,7 +8,7 @@ tags: [juejin，lottie]
 keywords: [juejin，lottie]
 ---
 
-## 用 lottie 来做一个小动画
+## 使用 lottie 丰富你的博客
 
 今天在掘金看到这样一个文章，可以使用 lottie 来做一个很酷的小动画
 [原文地址](https://juejin.cn/post/7430690608711647232)
