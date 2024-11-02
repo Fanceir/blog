@@ -4,8 +4,8 @@ slug: /use-lottie-to-make-a-small-animation
 title: 用lottie来做一个小动画
 date: 2024-10-31
 authors: Fanceir
-tags: [juejin，lottie]
-keywords: [juejin，lottie]
+tags: [juejin,lottie]
+keywords: [juejin,lottie]
 ---
 
 ## 使用 lottie 丰富你的博客
