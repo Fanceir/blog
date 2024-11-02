@@ -1,6 +1,6 @@
 ---
-id: 2024-09-summary
-slug: 2024-09-summary
+id: 2024-10-summary
+slug: 2024-10-summary
 title: 2024年10月总结
 date: 2024-10-30
 authors: Fanceir

@@ -17,15 +17,6 @@ export default function Home() {
   return (
     <Layout title={tagline} description={description}>
       <main>
-        {/* 左上角 Lottie 动画 */}
-        <div style={{ position: 'absolute', top: '50px', left: '50px', zIndex: 10 }}>
-          <Lottie
-            animationData={animationData}
-            loop
-            autoplay
-            style={{ width: '150px', height: '150px' }} // 控制动画大小
-          />
-        </div>
 
         <Hero />
         <Particles className="absolute inset-0" quantity={100} ease={80} color={'#ffffff'} refresh />
