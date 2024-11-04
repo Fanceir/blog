@@ -452,7 +452,8 @@ function resolvePromise(promise2, x, resolve, reject) {
 ### 基础部分
 
 以下都是林呆呆大佬的题目
-![promise](https://juejin.cn/post/6844904077537574919)
+
+(https://juejin.cn/post/6844904077537574919)
 
 #### 1.1
 
