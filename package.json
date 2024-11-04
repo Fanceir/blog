@@ -34,7 +34,7 @@
     "@docusaurus/plugin-pwa": "3.5.2",
     "@docusaurus/plugin-vercel-analytics": "^3.5.2",
     "@docusaurus/preset-classic": "^3.5.2",
-    "@docusaurus/theme-search-algolia": "3.5.2",
+    "@docusaurus/theme-search-algolia": "3.6.0",
     "@giscus/react": "^3.0.0",
     "@lottiefiles/dotlottie-react": "^0.9.2",
     "@popperjs/core": "^2.11.8",
