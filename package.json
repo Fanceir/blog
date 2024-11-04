@@ -29,7 +29,7 @@
     "index": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper"
   },
   "dependencies": {
-    "@docusaurus/core": "3.5.2",
+    "@docusaurus/core": "3.6.0",
     "@docusaurus/plugin-ideal-image": "3.5.2",
     "@docusaurus/plugin-pwa": "3.5.2",
     "@docusaurus/plugin-vercel-analytics": "^3.5.2",
