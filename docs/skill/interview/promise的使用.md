@@ -554,5 +554,418 @@ fn().then((res) => {
 // "success"
 ```
 
-施工中
-🚧🚧🚧
+### setTimeout 和 Promise 结合
+
+#### 2.1
+
+```js
+console.log("start");
+setTimeout(() => {
+  console.log("time");
+});
+Promise.resolve().then(() => {
+  console.log("resolve");
+});
+console.log("end");
+//start
+//end
+//resolve
+//time
+```
+
+#### 2.2
+
+```js
+const promise = new Promise((resolve, reject) => {
+  console.log(1);
+  setTimeout(() => {
+    console.log("timerStart");
+    resolve("success");
+    console.log("timerEnd");
+  }, 0);
+  console.log(2);
+});
+promise.then((res) => {
+  console.log(res);
+});
+console.log(4);
+//1
+// 2
+// 4
+// "timerStart"
+// "timerEnd"
+// "success"
+```
+
+#### 2.3-1
+
+```js
+setTimeout(() => {
+  console.log("timer1");
+  setTimeout(() => {
+    console.log("timer3");
+  }, 0);
+}, 0);
+setTimeout(() => {
+  console.log("timer2");
+}, 0);
+console.log("start");
+//start
+//timer1
+//timer2
+//timer3
+```
+
+#### 2.3-2
+
+```js
+setTimeout(() => {
+  console.log("timer1");
+  Promise.resolve().then(() => {
+    console.log("promise");
+  });
+}, 0);
+setTimeout(() => {
+  console.log("timer2");
+}, 0);
+console.log("start");
+//start
+//timer1
+//promise
+//timer2
+```
+
+promise 是一个微任务所以会在本轮执行结束之后执行
+
+#### 2.3-3
+
+```js
+Promise.resolve().then(() => {
+  console.log("promise1");
+  const timer2 = setTimeout(() => {
+    console.log("timer2");
+  }, 0);
+});
+const timer1 = setTimeout(() => {
+  console.log("timer1");
+  Promise.resolve().then(() => {
+    console.log("promise2");
+  });
+}, 0);
+console.log("start");
+//start
+//promise1
+//timer1
+//promise2
+//timer2
+```
+
+宏任务->微任务->宏任务->微任务
+就是通过这样的循环
+
+#### 2.4
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("success");
+  }, 1000);
+});
+const promise2 = promise1.then(() => {
+  throw new Error("error!!!");
+});
+console.log("promise1", promise1);
+console.log("promise2", promise2);
+setTimeout(() => {
+  console.log("promise1", promise1);
+  console.log("promise2", promise2);
+}, 2000);
+
+//p1 pending
+//p2 pending
+//Error
+//promise1 resolved success
+//promise2 rejected
+```
+
+#### 2.5
+
+```js
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("success");
+    console.log("timer1");
+  }, 1000);
+  console.log("promise1里的内容");
+});
+const promise2 = promise1.then(() => {
+  throw new Error("error!!!");
+});
+console.log("promise1", promise1);
+console.log("promise2", promise2);
+setTimeout(() => {
+  console.log("timer2");
+  console.log("promise1", promise1);
+  console.log("promise2", promise2);
+}, 2000);
+//promise1里的内容
+//1 pending
+//2 pending
+//timer1
+//error
+//p1 resolved success
+//p2 rejected
+```
+
+### Promise 中的 then、catch、finally
+
+#### 3.1
+
+```js
+const promise = new Promise((resolve, reject) => {
+  resolve("success1");
+  reject("error");
+  resolve("success2");
+});
+promise
+  .then((res) => {
+    console.log("then: ", res);
+  })
+  .catch((err) => {
+    console.log("catch: ", err);
+  });
+//then:success1
+```
+
+#### 3.2
+
+```js
+const promise = new Promise((resolve, reject) => {
+  reject("error");
+  resolve("success2");
+});
+promise
+  .then((res) => {
+    console.log("then1: ", res);
+  })
+  .then((res) => {
+    console.log("then2: ", res);
+  })
+  .catch((err) => {
+    console.log("catch: ", err);
+  })
+  .then((res) => {
+    console.log("then3: ", res);
+  });
+//catch:error
+//then3:undefined
+```
+
+#### 3.3
+
+```js
+Promise.resolve(1)
+  .then((res) => {
+    console.log(res);
+    return 2;
+  })
+  .catch((err) => {
+    return 3;
+  })
+  .then((res) => {
+    console.log(res);
+  });
+//1 2
+```
+
+#### 3.4
+
+```js
+Promise.reject(1)
+  .then((res) => {
+    console.log(res);
+    return 2;
+  })
+  .catch((err) => {
+    console.log(err);
+    return 3;
+  })
+  .then((res) => {
+    console.log(res);
+  });
+//1 3
+```
+
+#### 3.5
+
+```js
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("timer");
+    resolve("success");
+  }, 1000);
+});
+const start = Date.now();
+promise.then((res) => {
+  console.log(res, Date.now() - start);
+});
+promise.then((res) => {
+  console.log(res, Date.now() - start);
+});
+//timer
+//success 1001
+//success 1002
+```
+
+如果够快可能都是 1001
+
+#### 3.6
+
+```js
+Promise.resolve()
+  .then(() => {
+    return new Error("error!!!");
+  })
+  .then((res) => {
+    console.log("then: ", res);
+  })
+  .catch((err) => {
+    console.log("catch: ", err);
+  });
+//then error
+```
+
+#### 3.7
+
+```js
+const promise = Promise.resolve().then(() => {
+  return promise;
+});
+promise.catch(console.err);
+```
+
+不能返回 promise 本身所以会造成死循环
+
+#### 3.8
+
+```js
+Promise.resolve(1).then(2).then(Promise.resolve(3)).then(console.log);
+```
+
+`.then` 或者 `.catch` 的参数期望是函数，传入非函数则会发生值透传，直接将 resolve1 传递到最后一个 then 中
+
+#### 3.9
+
+```js
+Promise.reject("err!!!")
+  .then(
+    (res) => {
+      console.log("success", res);
+    },
+    (err) => {
+      console.log("error", err);
+    }
+  )
+  .catch((err) => {
+    console.log("catch", err);
+  });
+//error err!!!
+//如果去掉了(err) => {console.log("error", err);}，那么就会输出 catch err!!!
+```
+
+```js
+Promise.resolve()
+  .then(
+    function success(res) {
+      throw new Error("error!!!");
+    },
+    function fail1(err) {
+      console.log("fail1", err);
+    }
+  )
+  .catch(function fail2(err) {
+    console.log("fail2", err);
+  });
+//fail2 Error: error!!!
+//at success
+```
+
+#### 3.10
+
+```js
+Promise.resolve("1")
+  .then((res) => {
+    console.log(res);
+  })
+  .finally(() => {
+    console.log("finally");
+  });
+Promise.resolve("2")
+  .finally(() => {
+    console.log("finally2");
+    return "我是finally2返回的值";
+  })
+  .then((res) => {
+    console.log("finally2后面的then函数", res);
+  });
+// '1'
+// 'finally2'
+// 'finally'
+// 'finally2后面的then函数' '2'
+```
+
+```js
+Promise.resolve("1")
+  .finally(() => {
+    console.log("finally1");
+    throw new Error("我是finally中抛出的异常");
+  })
+  .then((res) => {
+    console.log("finally后面的then函数", res);
+  })
+  .catch((err) => {
+    console.log("捕获错误", err);
+  });
+//'finally1'
+//捕获错误 Error: 我是finally中抛出的异常
+```
+
+如果这里改为`return new Error`就会打印出`finally后面的then函数 Error: 我是finally中抛出的异常`
+
+```js
+function promise1() {
+  let p = new Promise((resolve) => {
+    console.log("promise1");
+    resolve("1");
+  });
+  return p;
+}
+function promise2() {
+  return new Promise((resolve, reject) => {
+    reject("error");
+  });
+}
+promise1()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("finally1"));
+
+promise2()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
+  .finally(() => console.log("finally2"));
+// promise1
+// 1
+//error
+//finally1
+//finally2
+```
+
+总结
+
+- `promise` 的状态一经改变就不能改变
+- `.catch` `.then`会返回一个新的`promise`
+- catch 不管连接到哪里都执行上面未捕获的错误
+- 在`Promise`中返回一个非`promise`的值都会被包裹成`promise`并且是`resolved`状态
+- `.then` `.catch`中不能返回`promise`本身
+- `.finally`方法返回一个`promise`，不管怎么样都会执行里面的回调函数
