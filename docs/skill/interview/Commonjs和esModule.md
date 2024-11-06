@@ -77,3 +77,57 @@ module 和 Module 的区别
 - Module 会缓存每一个模块加载的信息
 
 require 是如何避免重复加载的，首先加载之后的文件的 module 会被缓存到 Module.\_cache 中，如果再次加载的时候，会直接从缓存中读取
+
+#### require 动态加载
+
+require 的另一个加载特性，动态加载
+require 可以在任意的上下文动态加载模块
+
+#### exports 和 module.exports
+
+exports 的用法
+
+```js
+exports.name = "《exports》";
+exports.name = "hha";
+exports.sat = function () {
+  console.log(123);
+};
+```
+
+```js
+const a = require("./a");
+console.log(a);
+```
+
+`exports` 就是传入到当前模块内的一个对象本质上就是 `modules.exports`
+那么为什么不直接传入一个对象呢
+
+```js
+exports = {
+  name: "《React进阶实践指南》",
+  author: "我不是外星人",
+  say() {
+    console.log(666);
+  },
+};
+```
+
+这里发现是无效的，因为本质上是 exports，module require 作为形参传入到 js 中，这里如果直接用`exports={}`修改 exports 等于重新赋值了形参。
+
+`module.exports`本质上也是`exports`
+
+```js
+module.exports = {
+  name: "《React进阶实践指南》",
+  author: "我不是外星人",
+  say() {
+    console.log(666);
+  },
+};
+```
+
+为什么有了 `exports` 还要有 `module.exports` 呢，因为 `exports` 只能导出对象，`module.exports` 可以导出任何类型的数据,而且如果 exports 和 `module.exports` 同时存在，那么导出的是 module.exports
+
+与 `exports` 比，`module.exports` 更加灵活，可以导出任何类型的数据，
+但是如果导出的是函数等一些非对象的时候，对象会保留相同的内存地址所以有可能会造成属性丢失的情况，所以这时候要使用 exports
