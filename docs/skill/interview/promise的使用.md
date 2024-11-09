@@ -969,3 +969,333 @@ promise2()
 - 在`Promise`中返回一个非`promise`的值都会被包裹成`promise`并且是`resolved`状态
 - `.then` `.catch`中不能返回`promise`本身
 - `.finally`方法返回一个`promise`，不管怎么样都会执行里面的回调函数
+
+### Promise 中的 all 和 race 练习
+
+首先简单介绍一下`Promise.all`和`Promise.race()`
+简单来说`.all`是接受一组异步仍无，然后执行他们，并且在所有的异步任务都操作完才会执行回调函数`.race`是接受一组异步任务，只要有一个任务完成就可以执行回调函数
+
+#### 4.1
+
+```js
+const p1 = new Promise((r) => console.log("立即打印"));
+```
+
+如果直接定义一个`promise`对象，那么会立即执行
+如过这样就可以在调用的时候执行这个函数
+
+```js
+function fn() {
+  const p1 = new Promise((r) => console.log("立即打印"));
+  return p1;
+}
+fn();
+```
+
+```js
+function runAsync(x) {
+  const p = new Promise((r) => setTimeout(() => r(x, console.log(x)), 1000));
+  return p;
+}
+Promise.all([runAsync(1), runAsync(2), runAsync(3)]).then((res) =>
+  console.log(res)
+);
+// 1
+// 2
+// 3
+// [1, 2, 3]
+```
+
+这样可以并行执行多个异步操作，在一个回调中可以拿到所有的返回数据，
+这里的 res 是一个数组，并且数组的数据是和接收的数据一一对应的
+
+#### 4.2
+
+```js
+function runAsync(x) {
+  const p = new Promise((r) => setTimeout(() => r(x, console.log(x)), 1000));
+  return p;
+}
+function runReject(x) {
+  const p = new Promise((res, rej) =>
+    setTimeout(() => rej(`Error: ${x}`, console.log(x)), 1000 * x)
+  );
+  return p;
+}
+Promise.all([runAsync(1), runReject(4), runAsync(3), runReject(2)])
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+//   // 1s后输出
+// 1
+// 3
+// // 2s后输出
+// 2
+// Error: 2
+// // 4s后输出
+// 4
+```
+
+这里的`all`是并行执行的，所以只要有一个`reject`那么就会直接进入`catch`函数
+
+`race`是只会执行最快的那个异步操作
+
+```js
+function runAsync(x) {
+  const p = new Promise((r) => setTimeout(() => r(x, console.log(x)), 1000));
+  return p;
+}
+Promise.race([runAsync(1), runAsync(2), runAsync(3)])
+  .then((res) => console.log("result: ", res))
+  .catch((err) => console.log(err));
+// 1
+// 'result: ' 1
+// 2
+// 3
+```
+
+```js
+function runAsync(x) {
+  const p = new Promise((r) => setTimeout(() => r(x, console.log(x)), 1000));
+  return p;
+}
+function runReject(x) {
+  const p = new Promise((res, rej) =>
+    setTimeout(() => rej(`Error: ${x}`, console.log(x)), 1000 * x)
+  );
+  return p;
+}
+Promise.race([runReject(0), runAsync(1), runAsync(2), runAsync(3)])
+  .then((res) => console.log("result: ", res))
+  .catch((err) => console.log(err));
+//   0
+// 'Error: 0'
+// 1
+// 2
+// 3
+```
+
+### async 和 await
+
+#### 5.1
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await async2();
+  console.log("async1 end");
+}
+async function async2() {
+  console.log("async2");
+}
+async1();
+console.log("start");
+// 'async1 start'
+// 'async2'
+// 'start'
+// 'async1 end'
+```
+
+首先是定义了两个`async`函数，首先调用第一个函数，输出了`async1 start` 然后发现了`await`这会阻塞后面的代码执行所以会先去执行 async2 中的同步代码，输出了`async2`然后跳出了`async1`，输出了`start`，最后输出了`async1 end`
+
+```js
+async function async1() {
+  console.log("async1 start");
+  new Promise((resolve) => {
+    console.log("promise");
+  });
+  console.log("async1 end");
+}
+async1();
+console.log("start");
+// 'async start'
+// 'promise'
+// 'async1 end'
+// 'start'
+```
+
+#### 5.2
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await async2();
+  console.log("async1 end");
+}
+async function async2() {
+  setTimeout(() => {
+    console.log("timer");
+  }, 0);
+  console.log("async2");
+}
+async1();
+console.log("start");
+// a1 s
+// a2
+// start
+// a1 end
+// timer
+```
+
+#### 5.3
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await async2();
+  console.log("async1 end");
+  setTimeout(() => {
+    console.log("timer1");
+  }, 0);
+}
+async function async2() {
+  setTimeout(() => {
+    console.log("timer2");
+  }, 0);
+  console.log("async2");
+}
+async1();
+setTimeout(() => {
+  console.log("timer3");
+}, 0);
+console.log("start");
+// 'async1 start'
+// 'async2'
+// 'start'
+// 'async1 end'
+// 'timer2'
+// 'timer3'
+// 'timer1'
+```
+
+#### 5.4
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await new Promise((resolve) => {
+    console.log("promise1");
+  });
+  console.log("async1 success");
+  return "async1 end";
+}
+console.log("srcipt start");
+async1().then((res) => console.log(res));
+console.log("srcipt end");
+// 'script start'
+// 'async1 start'
+// 'promise1'
+// 'script end'
+```
+
+注意到在`await new Promise`的时候，没有返回值，所以一直在`await`
+
+#### 5.5
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await new Promise((resolve) => {
+    console.log("promise1");
+    resolve("promise1 resolve");
+  }).then((res) => console.log(res));
+  console.log("async1 success");
+  return "async1 end";
+}
+console.log("srcipt start");
+async1().then((res) => console.log(res));
+console.log("srcipt end");
+// 'script start'
+// 'async1 start'
+// 'promise1'
+// 'script end'
+// 'promise1 resolve'
+// 'async1 success'
+// 'async1 end'
+```
+
+#### 5.6
+
+```js
+async function async1() {
+  console.log("async1 start");
+  await new Promise((resolve) => {
+    console.log("promise1");
+    resolve("promise resolve");
+  });
+  console.log("async1 success");
+  return "async1 end";
+}
+console.log("srcipt start");
+async1().then((res) => {
+  console.log(res);
+});
+new Promise((resolve) => {
+  console.log("promise2");
+  setTimeout(() => {
+    console.log("timer");
+  });
+});
+// 'script start'
+// 'async1 start'
+// 'promise1'
+// 'promise2'
+// 'async1 success'
+// 'async1 end'
+// 'timer'
+```
+
+### 综合题目
+
+#### 6.1
+
+```js
+const first = () =>
+  new Promise((resolve, reject) => {
+    console.log(3);
+    let p = new Promise((resolve, reject) => {
+      console.log(7);
+      setTimeout(() => {
+        console.log(5);
+        resolve(6);
+        console.log(p);
+      }, 0);
+      resolve(1);
+    });
+    resolve(2);
+    p.then((arg) => {
+      console.log(arg);
+    });
+  });
+first().then((arg) => {
+  console.log(arg);
+});
+console.log(4);
+```
+
+#### 6.2
+
+```js
+const p1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("resolve3");
+    console.log("timer1");
+  }, 0);
+  resolve("resovle1");
+  resolve("resolve2");
+})
+  .then((res) => {
+    console.log(res);
+    setTimeout(() => {
+      console.log(p1);
+    }, 1000);
+  })
+  .finally((res) => {
+    console.log("finally", res);
+  });
+//   'resolve1'
+// 'finally' undefined
+// 'timer1'
+// Promise{<resolved>: undefined}
+```
+
+`finally`中的 res 是不会接收到 Promise 的返回值的
