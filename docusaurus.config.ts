@@ -1,8 +1,8 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { themes } from "prism-react-renderer";
-import rehypeKatex from 'rehype-katex';
-import remarkMath from 'remark-math';
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
 const config: Config = {
@@ -15,7 +15,7 @@ const config: Config = {
   customFields: {
     bio: "道阻且长，行则将至",
     description:
-      "是一个由愧怍创作的博客框架，本站作者使用了他的框架，主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。",
+      "主要分享编程开发知识和项目，该网站基于 React 驱动的静态网站生成器 Docusaurus 构建。",
   },
   themeConfig: {
     // announcementBar: {
@@ -79,7 +79,6 @@ const config: Config = {
             { label: "归档", to: "blog/archive" },
             { label: "技术笔记", to: "docs/skill" },
             { label: "实战项目", to: "project" },
-            
           ],
         },
         {
@@ -148,10 +147,9 @@ const config: Config = {
       repoId: "R_kgDOMq9UAg",
       category: "General",
       categoryId: "DIC_kwDOMq9UAs4CiHmt",
-      theme: 'light',
-      darkTheme: 'dark',
-    } satisfies Partial<GiscusConfig>
-,    
+      theme: "light",
+      darkTheme: "dark",
+    } satisfies Partial<GiscusConfig>,
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 4,
@@ -170,8 +168,8 @@ const config: Config = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          path: 'docs',
-          sidebarPath: 'sidebars.ts',
+          path: "docs",
+          sidebarPath: "sidebars.ts",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -190,7 +188,7 @@ const config: Config = {
       },
     ],
   ],
-  
+
   plugins: [
     "docusaurus-plugin-image-zoom",
     "@docusaurus/plugin-ideal-image",
@@ -298,11 +296,11 @@ Love what you do and do what you love.
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Medium.min.css",
     "https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css",
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
     },
   ],
   i18n: {

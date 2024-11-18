@@ -31,10 +31,7 @@
     "message": "Projects",
     "description": "The label of footer link with label=实战项目 linking to project"
   },
-  "link.item.label.前端示例": {
-    "message": "Frontend Examples",
-    "description": "The label of footer link with label=前端示例 linking to https://example.kuizuo.cn"
-  },
+  
   "link.item.label.关于我": {
     "message": "About Me",
     "description": "The label of footer link with label=关于我 linking to /about"
