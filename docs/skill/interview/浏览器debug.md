@@ -55,3 +55,15 @@ network 中可以查看请求的状态，请求的数据，请求的时间等信
 ## Performance
 
 这个是和网页的性能相关的
+
+## nodejs 调试
+
+使用 `node --inspect-brk=xxx index.js` 命令，可以在 chrome 中调试 nodejs 代码。
+
+也可以使用 vscode 的调试
+
+## 常用开发调试技巧
+
+### 使用 Override 功能
+
+可以使用 source 下的 override 功能，可以修改页面的 js 代码，然后保存到本地，这样就可以在本地修改代码，然后刷新页面，就可以看到修改后的效果。
