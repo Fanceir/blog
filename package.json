@@ -36,7 +36,7 @@
     "@docusaurus/preset-classic": "^3.6.3",
     "@docusaurus/theme-common": "^3.6.3",
     "@docusaurus/theme-search-algolia": "3.6.3",
-    "@giscus/react": "^3.0.0",
+    "@giscus/react": "^3.1.0",
     "@lottiefiles/dotlottie-react": "^0.12.1",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-slot": "^1.1.1",
