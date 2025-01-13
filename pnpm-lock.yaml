@@ -90,8 +90,8 @@ importers:
         specifier: ^4.5.3
         version: 4.5.3(react@18.3.1)
       react-icon-cloud:
-        specifier: ^4.1.4
-        version: 4.1.4(react@18.3.1)
+        specifier: ^4.1.7
+        version: 4.1.7(react@18.3.1)
       react-popper:
         specifier: ^2.3.0
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5158,9 +5158,8 @@ packages:
     peerDependencies:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
 
-  react-icon-cloud@4.1.4:
-    resolution: {integrity: sha512-hc8yGNU98V6ObPdeNIt75M016xGMxbTWqB4l6exo1uwE5bvFU095unMbX2K3YBKYhGKEV3c7fSmq3jD3cRWX+A==}
-    engines: {node: '>=10'}
+  react-icon-cloud@4.1.7:
+    resolution: {integrity: sha512-E5k93BlO7dNLmFZPd0JlJ1dO6pUI86IarVEXo3bkQg6oFqqwKv3XFkEKRl2iaxB9K2uOvOvoCJu2kjkoQWI6Mg==}
     peerDependencies:
       react: '>=16'
 
@@ -9330,7 +9329,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-github-calendar: 4.5.3(react@18.3.1)
-      react-icon-cloud: 4.1.4(react@18.3.1)
+      react-icon-cloud: 4.1.7(react@18.3.1)
       react-popper: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rehype-katex: 7.0.1
       remark-math: 6.0.0
@@ -12897,7 +12896,7 @@ snapshots:
       react-fast-compare: 3.2.2
       shallowequal: 1.1.0
 
-  react-icon-cloud@4.1.4(react@18.3.1):
+  react-icon-cloud@4.1.7(react@18.3.1):
     dependencies:
       '@csstools/convert-colors': 2.0.0
       react: 18.3.1
