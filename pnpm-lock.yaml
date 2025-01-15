@@ -102,7 +102,11 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       tailwind-merge:
+<<<<<<< HEAD
         specifier: ^2.5.5
+=======
+        specifier: ^2.6.0
+>>>>>>> refs/remotes/origin/main
         version: 2.6.0
       tailwindcss:
         specifier: ^3.4.16
@@ -9315,7 +9319,11 @@ snapshots:
       rehype-katex: 7.0.1
       remark-math: 6.0.0
       tailwind-merge: 2.6.0
+<<<<<<< HEAD
       tailwindcss: 3.4.17
+=======
+      tailwindcss: 3.4.16
+>>>>>>> refs/remotes/origin/main
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@docusaurus/faster'
