@@ -10,7 +10,7 @@
     "url": "https://github.com/Fanceir/blog",
     "type": "git"
   },
-  "homepage": "https://fanxu.online",
+  "homepage": "https://fanxu.tech",
   "license": "MIT",
   "scripts": {
     "docusaurus": "docusaurus",
@@ -66,7 +66,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@docusaurus/module-type-aliases": "3.6.3",
-    "@docusaurus/tsconfig": "^3.6.3",
+    "@docusaurus/tsconfig": "^3.7.0",
     "@docusaurus/types": "3.6.3",
     "@iconify/react": "^5.1.0",
     "@tailwindcss/typography": "^0.5.15",

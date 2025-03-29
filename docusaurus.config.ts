@@ -7,7 +7,7 @@ import social from "./data/social";
 import type { GiscusConfig } from "./src/components/Comment";
 const config: Config = {
   title: "Fanceir's Blog",
-  url: "https://fanxu.online",
+  url: "https://fanxu.tech",
   baseUrl: "/",
   favicon: "img/favicon.ico",
   organizationName: "Fanceir",
