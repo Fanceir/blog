@@ -77,7 +77,7 @@ export default function App() {
 
 ```jsx
 function Profile() {
-  return <img src="https://www.fanxu.online/img/logo.webp" alt="Fanceir" />;
+  return <img src="https://www.fanxu.tech/img/logo.webp" alt="Fanceir" />;
 }
 export default function Gallery() {
   return (

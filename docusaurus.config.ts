@@ -111,8 +111,8 @@ const config: Config = {
         `,
     },
     algolia: {
-      appId: "7KOYDRRV5Z",
-      apiKey: "6cf132f993a45377475827a5b8007370",
+      appId: "KYJ8EBZIE5",
+      apiKey: "93c7100a26af8ce0396bf86c2fbf0605",
       indexName: "fanceir",
     },
     prism: {
