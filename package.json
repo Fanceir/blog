@@ -37,7 +37,7 @@
     "@docusaurus/theme-common": "^3.7.0",
     "@docusaurus/theme-search-algolia": "3.7.0",
     "@giscus/react": "^3.0.0",
-    "@lottiefiles/dotlottie-react": "^0.12.1",
+    "@lottiefiles/dotlottie-react": "^0.13.3",
     "@popperjs/core": "^2.11.8",
     "@radix-ui/react-slot": "^1.1.1",
     "autoprefixer": "^10.4.20",
