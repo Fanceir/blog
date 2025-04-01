@@ -14,8 +14,8 @@ const ADD_FRIEND_URL = 'https://github.com/Fanceir/blog/edit/main/data/friends.t
 const SITE_INFO = `
 title: 'Fanceir'
 description: '道阻且长，行则将至'
-website: 'https://fanxu.online'
-avatar: 'https://fanxu.online/img/logo.png'
+website: 'https://fanxu.tech'
+avatar: 'https://fanxu.tech/img/logo.png'
 `
 const friends = Friends
 
